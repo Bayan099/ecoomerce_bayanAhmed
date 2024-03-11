@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+{% block content %} 
+<body style="background-image: url('https://itseeze.com/_webedit/cached-images/2761-0-0-1250-10000-7500-1344.png'); height: 150vh; ">
+<div class="container">
+    {% for item in lap %}
+<div class="row mt-5 text-center d-flex justify-content-center">
+  <div class="col-sm-8">
+    <div class="card">
+      <div class="card-body bg-dark">
+        <div class="row">
+             <div class="col-sm-3">
+               <img src="../static/images/{{item.image}}" width="170" height="150">
+            </div>      
+          <div class="col-sm-9">
+            <ul class="list-unstyled">
+                <li class="alert alert-dark"><strong> {{item.itemsid.name}}</strong></li>
+              <li class="alert alert-dark"><strong>Color: {{item.color}}</strong></li>
+              <li class="alert alert-dark"><strong>Price: {{item.price}} SAR</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <a href="{% url 'laptopsdetails' id=item.id %}" class=" btn btn-light">product details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{%endfor%}
+{% endblock %}
